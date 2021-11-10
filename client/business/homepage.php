@@ -1,9 +1,9 @@
 <?php
+require_once './dao/system_dao.php';
 function home(){
-    $name = 'thienth';
-    $age = 30;
-    $mainView = './client/views/homepage/index.php';
-    include_once './client/views/layouts/main.php';
+    $sqlQuery = "select * from products";
+    $products = executeQuery($sqlQuery, true);
+    client_render('homepage/index.php', compact('products'));
 }
 
 
